@@ -15,7 +15,7 @@ module.exports = {
         secondary: 'var(--color-bg-secondary)',
       },
       textColor: {
-        titla: 'var(--color-text-title)',
+        title: 'var(--color-text-title)',
         accent: 'var(--color-text-accent)',
         primary: 'var(--color-text-primary)',
         secondary: 'var(--color-text-secondary)',

@@ -1,6 +1,6 @@
 import React from "react";
-import NavigationBar from "../components/NavigationBar/NavigationBar";
-import { ThemeProvider } from "../components/ThemeProvider";
+import NavigationBar from "../NavigationBar/NavigationBar"
+import { ThemeProvider } from "../ThemeProvider";
 
 const PageLayout = ({ children }) => {
   return (
