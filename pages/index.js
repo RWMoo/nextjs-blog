@@ -4,7 +4,7 @@ import LatestPost from "../components/Cards/LatestPostCard";
 import { gql, GraphQLClient } from "graphql-request";
 
 export const getStaticProps = async () => {
-  const graphcms = new GraphQLClient(process.env.GRAPHCMS_ENDPOINT);
+  const graphcms = new GraphQLClient("https://api-ap-southeast-2.graphcms.com/v2/ckxh59qbh0wsm01xoayv9051z/master");
   const { posts } = await graphcms.request(
     gql`
       query MyQuery {
