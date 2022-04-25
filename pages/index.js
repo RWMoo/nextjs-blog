@@ -25,7 +25,7 @@ export const getStaticProps = async () => {
         }
       }
     `
-  );
+  ).catch(e => console.log(e))
   return {
     props: {
       posts,
