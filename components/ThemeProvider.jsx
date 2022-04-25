@@ -1,4 +1,4 @@
-import React, {createContext, useState} from "react";
+import React, { createContext, useState } from "react";
 export const ThemeContext = createContext();
 
 const getTheme = () => {
@@ -19,11 +19,13 @@ export const ThemeProvider = ({ initialTheme, children }) => {
   const [theme, setTheme] = useState(getTheme);
 
   const rawSetTheme = (theme) => {
-    const root = window.document.documentElement;
-    const isDark = theme === "dark";
-    root.classList.remove(isDark ? "light" : "dark");
-    root.classList.add(theme);
-    localStorage.setItem("theme", theme);
+    if (typeof window !== "undefined") {
+      const root = window.document.documentElement;
+      const isDark = theme === "dark";
+      root.classList.remove(isDark ? "light" : "dark");
+      root.classList.add(theme);
+      localStorage.setItem("theme", theme);
+    }
   };
 
   if (initialTheme) {

@@ -2,7 +2,6 @@ module.exports = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
-    "./layouts/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     fontFamily: {
@@ -16,7 +15,7 @@ module.exports = {
         secondary: 'var(--color-bg-secondary)',
       },
       textColor: {
-        title: 'var(--color-text-title)',
+        titla: 'var(--color-text-title)',
         accent: 'var(--color-text-accent)',
         primary: 'var(--color-text-primary)',
         secondary: 'var(--color-text-secondary)',
