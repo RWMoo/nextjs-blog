@@ -1,7 +1,7 @@
 import PageLayout from "../components/layouts/PageLayout"
 import MainCard from "../components/Cards/MainCard";
 import LatestPost from "../components/Cards/LatestPostCard";
-import { gql, GraphQLClient } from "graphql-request";
+
 
 
 const Home = ({ posts }) => {
