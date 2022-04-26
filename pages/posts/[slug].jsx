@@ -78,13 +78,14 @@ const components = {
     />
   ),
   code: (props) => {
-    console.log(props)
+    const {className, children} = props;
+    const language = className?.replace("language-", "")
     return (
       <Highlight
         {...defaultProps}
         theme={theme}
-        code={props.children}
-        language={props.language}
+        code={children}
+        language={language}
       >
         {({ tokens, getLineProps, getTokenProps }) => (
           <pre>
