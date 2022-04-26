@@ -15,17 +15,21 @@ module.exports = {
         DEFAULT: {
           css: {
             fontFamily: "Fira Sans",
-            "--tw-prose-headings": "var(--color-text-title)",
-            "--tw-prose-body": "var(--color-text-primary)",
+            "--tw-prose-headings": "var(--color-text-headers)",
+            "--tw-prose-body": "var(--color-text-body)",
+            "--tw-prose-bullets": "var(--color-text-body)",
             "--tw-prose-links": "var(--color-text-primary)",
             h1: {
               fontFamily: "Fira Sans",
+              color: "var(--color-text-h1)"
             },
             h2: {
               fontFamily: "Noticia Text",
+              color: "var(--color-text-h2)"
             },
             h3: {
               fontFamily: "Noticia Text",
+              color: "var(--color-text-h3)"
             },
             h4: {
               fontFamily: "Noticia Text",

@@ -23,7 +23,7 @@ const LatestPost = (props) => {
               />
             </div>
           </div>
-          <div className="px-2 w-full text-primary">
+          <div className="px-2 w-full text-body">
             <h3 className=" line-clamp-2 text-sm font-display font-semibold">
               {title}
             </h3>
