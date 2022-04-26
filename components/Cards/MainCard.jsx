@@ -4,7 +4,6 @@ import { FaShare, FaHeart } from "react-icons/fa";
 import Badge from "../Globals/Buttons/Badge";
 import { formatGraphCMSDate } from "../helpers";
 const MainCard = (props) => {
-  console.log(props);
   const { coverImage, minutes, date, title, excerpt } = props;
   return (
     <div className="p-4 pb-6 bg-secondary mt-14 rounded-sm">
