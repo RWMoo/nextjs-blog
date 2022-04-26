@@ -1,28 +1,65 @@
 import ModeSwitch from "./ModeSlider/ModeSlider";
 import { FaBars, FaSearch } from "react-icons/fa";
 import { useState } from "react";
+import { Menu } from "@headlessui/react";
+
+const links = [
+  {
+    name: "Home",
+    link: "/",
+  },
+  {
+    name: "Blog",
+    link: "/blog",
+  },
+  {
+    name: "Discord",
+    link: "https://discord.gg/programming",
+  },
+  {
+    name: "About",
+    link: "/about",
+  },
+  {
+    name: "Contact",
+    link: "/contact",
+  },
+];
 
 const NavigationBar = () => {
   const [showSearch, setShowSearch] = useState(false);
   return (
     <nav className="flex justify-between items-center px-2 h-20 w-full bg-primary text-primary">
-      {!showSearch && (
-        <button>
+      <Menu>
+        <Menu.Button>
           <FaBars className="text-xl ml-2" />
-        </button>
-      )}
+        </Menu.Button>
+        <Menu.Items className="w-full absolute left-0 top-0 z-40 flex flex-col font-display">
+          {links.map(item => <Item key={item.name} {...item}/>)}
+        </Menu.Items>
+      </Menu>
       <div className="flex justify-end items-center space-x-4 flex-grow">
         <button onClick={() => setShowSearch(!showSearch)}>
           <FaSearch className={"text-lg ml-2"} />
         </button>
-        {!showSearch && (
-          <div className="pr-1">
-            <ModeSwitch />
-          </div>
-        )}
-        {showSearch && <input className="h-10 w-full rounded-lg" />}
+
+        <div className="pr-1">
+          <ModeSwitch />
+        </div>
       </div>
     </nav>
+  );
+};
+
+const Item = ({ name, link }) => {
+  return (
+    <Menu.Item className="py-3 text-center text-primary bg-slate-400">
+      {({ active }) => (
+        <a className={`${active && "bg-blue-500"}`} href={link}>
+          {name}
+        </a>
+      )}
+    </Menu.Item>
   );
 };
 

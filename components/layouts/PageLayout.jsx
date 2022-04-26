@@ -1,6 +1,6 @@
 import React from "react";
+import Footer from "../Footer/Footer";
 import NavigationBar from "../NavigationBar/NavigationBar"
-import { ThemeProvider } from "../ThemeProvider";
 
 const PageLayout = ({ children }) => {
   return (
@@ -9,6 +9,7 @@ const PageLayout = ({ children }) => {
       <div className="container px-4 mx-auto text-gray-300">
         {children}
       </div>
+      <Footer/>
     </div>
   );
 };

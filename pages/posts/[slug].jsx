@@ -1,6 +1,8 @@
 import { gql, GraphQLClient } from "graphql-request";
 import { serialize } from "next-mdx-remote/serialize";
 import { MDXRemote } from "next-mdx-remote";
+import PageLayout from "../../components/layouts/PageLayout";
+import Image from "next/image";
 const graphcms = new GraphQLClient(process.env.GRAPHCMS_ENDPOINT);
 
 export const getStaticPaths = async () => {
@@ -57,17 +59,44 @@ export const getStaticProps = async ({ params }) => {
   };
 };
 
+const components = {
+  img: (props) => (
+        <Image
+          alt={props.alt}
+          layout="responsive"
+          width={1}
+          height={1}
+          objectPosition="center"
+          objectFit="cover"
+          placeholder="blur"
+          blurDataURL={props.src}
+          src={props.src}
+          {...props}
+        />
+  ),
+};
+
 const Post = ({ post }) => {
-  console.log(post);
   return (
-    <main>
-      <h1>{post.title}</h1>
-      <h2>{post.date}</h2>
-      <img src={post.coverImage.url} alt={post.title} />
-      <div>
-        <MDXRemote {...post.source} />
+    <PageLayout>
+      <div className="h-full">
+      <div className="relative w-screen -ml-4 h-56 shadow-md">
+        <Image
+          alt={post.coverImage.alt}
+          layout="fill"
+          className="rounded-sm"
+          objectPosition="center"
+          objectFit="cover"
+          placeholder="blur"
+          blurDataURL={post.coverImage.url}
+          src={post.coverImage.url}
+        />
       </div>
-    </main>
+      <article className="prose prose-md pt-8">
+        <MDXRemote {...post.source} components={components} />
+      </article>
+      </div>
+    </PageLayout>
   );
 };
 
