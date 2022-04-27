@@ -2,30 +2,10 @@ import PageLayout from "../components/layouts/PageLayout"
 import MainCard from "../components/Cards/MainCard";
 import LatestPost from "../components/Cards/LatestPostCard";
 import { gql, GraphQLClient } from "graphql-request";
+import { getPosts } from "../utils/queries";
 
 export const getStaticProps = async () => {
-  const graphcms = new GraphQLClient(process.env.GRAPHCMS_ENDPOINT);
-  const { posts } = await graphcms.request(
-    gql`
-      query MyQuery {
-        posts {
-          id
-          slug
-          title
-          date
-          excerpt
-          coverImage {
-            url
-            alt
-          }
-          category {
-            title
-          }
-          minutes
-        }
-      }
-    `
-  )
+  const { posts } = await getPosts()
   return {
     props: {
       posts,

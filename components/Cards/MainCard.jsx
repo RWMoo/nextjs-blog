@@ -2,7 +2,7 @@ import Image from "next/image";
 import FabButton from "../Globals/Buttons/FabButton";
 import { FaShare, FaHeart } from "react-icons/fa";
 import Badge from "../Globals/Buttons/Badge";
-import { formatGraphCMSDate } from "../helpers";
+import { formatGraphCMSDate } from "../../utils";
 const MainCard = (props) => {
   const { coverImage, minutes, date, title, excerpt } = props;
   return (
