@@ -13,7 +13,7 @@ import { FaHeart, FaShare } from "react-icons/fa";
 import { format, parseISO } from "date-fns";
 
 export const getStaticPaths = async () => {
-  const res = await fetch("http://localhost:3000/api/get-slugs");
+  const res = await fetch("https://eclectic-sable-f06ae2.netlify.app/api/get-slugs");
   const slugs = await res.json();
   return {
     paths: slugs.posts.map((event) => ({ params: { slug: event.slug } })),
@@ -23,7 +23,7 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async ({ params }) => {
   const slug = params.slug;
-  const res = await fetch(`http://localhost:3000/api/posts/${slug}`);
+  const res = await fetch(`https://eclectic-sable-f06ae2.netlify.app/api/posts/${slug}`);
   const data = await res.json();
 
   if (!data.post) {
