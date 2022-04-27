@@ -13,16 +13,13 @@ import { FaHeart, FaShare } from "react-icons/fa";
 import { format, parseISO } from "date-fns";
 
 export const getStaticPaths = async () => {
-  const res = await fetch(
-    "https://eclectic-sable-f06ae2.netlify.app/api/get-slugs",
-    {
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-        "User-Agent": "*",
-      },
-    }
-  );
+  const res = await fetch("/api/get-slugs", {
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+      "User-Agent": "*",
+    },
+  });
   const slugs = await res.json();
   return {
     paths: slugs.posts.map((event) => ({ params: { slug: event.slug } })),
@@ -32,16 +29,13 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async ({ params }) => {
   const slug = params.slug;
-  const res = await fetch(
-    `https://eclectic-sable-f06ae2.netlify.app/api/posts/${slug}`,
-    {
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-        "User-Agent": "*",
-      },
-    }
-  );
+  const res = await fetch(`/api/posts/${slug}`, {
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+      "User-Agent": "*",
+    },
+  });
   const data = await res.json();
 
   if (!data.post) {
