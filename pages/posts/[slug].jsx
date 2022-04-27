@@ -75,38 +75,39 @@ const Post = ({ post }) => {
   };
   return (
     <PageLayout>
-      <div className="h-full md:px-16 lg:px-24 xl:px-32 2xl:px-40">
+      <div className="h-full 2xl:px-40">
         <article className="prose prose-sm sm:prose-base sm:max-w-none md:max-w-none md:prose-lg ">
-          <div className="relative w-screen xs:w-full -ml-4 xs:ml-0 h-56 md:h-64 lg:h-72 xl:h-80 shadow-md">
+          <div className="relative  h-56 md:h-64 lg:h-72 xl:h-80 shadow-md">
             <Image
               alt={post.coverImage.alt}
               layout="fill"
               className="rounded-sm"
-              objectPosition="left"
+              objectPosition="center"
               objectFit="cover"
               placeholder="blur"
               blurDataURL={post.coverImage.url}
               src={post.coverImage.url}
             />
           </div>
+          <div className="px-2">
+            <div className="flex space-x-5  items-center  mt-4 sm:mt-8 text-xs sm:text-sm md:text-base lg:text-lg">
+              <p className="font-display flex text-accent items-center ">
+                {post.category.title}
+              </p>
+              <p className="font-display flex items-center text-accent ">
+                {format(parseISO(post.date, "yyyy/MM/dd"), "dd/MM/yyyy")}
+              </p>
+              <p className="font-display flex items-center text-accent ">
+                {post.minutes} minute read
+              </p>
+              <button>
+                <FaShare className="text-title" />
+              </button>
+            </div>
 
-          <div className="flex space-x-5 items-center  mt-4 sm:mt-8 text-xs sm:text-sm md:text-base lg:text-lg">
-            <p className="font-display flex text-accent items-center ">
-              {post.category.title}
-            </p>
-            <p className="font-display flex items-center text-accent ">
-              {format(parseISO(post.date, "yyyy/MM/dd"), "dd/MM/yyyy")}
-            </p>
-            <p className="font-display flex items-center text-accent ">
-              {post.minutes} minute read
-            </p>
-            <button>
-              <FaShare className="text-title" />
-            </button>
+            <h1 className="">{post.title}</h1>
+            <MDXRemote {...post.source} components={components} />
           </div>
-
-          <h1 className="">{post.title}</h1>
-          <MDXRemote {...post.source} components={components} />
         </article>
       </div>
     </PageLayout>

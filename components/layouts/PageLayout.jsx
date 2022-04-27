@@ -6,7 +6,7 @@ const PageLayout = ({ children }) => {
   return (
     <div className="bg-primary">
       <NavigationBar />
-      <div className="container px-4 mx-auto text-gray-300">
+      <div className="xl:container px-4 md:px-8 mx-auto text-gray-300">
         {children}
       </div>
       <Footer/>
