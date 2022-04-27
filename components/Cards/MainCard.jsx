@@ -19,7 +19,7 @@ const MainCard = (props) => {
           src={coverImage.url}
         />
       </div>
-      <div className="px-2 text-primary">
+      <div className="px-2 text-body">
         <div className="flex space-x-3 mt-4 text-sm font-semibold">
           <p>{formatGraphCMSDate(date)}</p>
           <p>{minutes} minute read</p>

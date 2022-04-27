@@ -29,10 +29,10 @@ const links = [
 const NavigationBar = () => {
   const [showSearch, setShowSearch] = useState(false);
   return (
-    <nav className="flex justify-between items-center px-2 h-20 w-full bg-primary text-body">
+    <nav className="flex justify-between items-center px-6 h-20 w-full bg-primary text-body">
       <Menu>
         <Menu.Button>
-          <FaBars className="text-xl ml-2" />
+          <FaBars className="text-xl " />
         </Menu.Button>
         <Menu.Items className="w-full absolute left-0 top-0 z-40 flex flex-col font-display">
           {links.map(item => <Item key={item.name} {...item}/>)}
@@ -42,8 +42,7 @@ const NavigationBar = () => {
         <button onClick={() => setShowSearch(!showSearch)}>
           <FaSearch className={"text-lg ml-2"} />
         </button>
-
-        <div className="pr-1">
+        <div>
           <ModeSwitch />
         </div>
       </div>

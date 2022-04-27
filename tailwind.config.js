@@ -10,6 +10,14 @@ module.exports = {
       headers: ["Noticia Text"],
       body: ["Telex"],
     },
+    screens: {
+      xs: "400px",
+      sm: "640px",
+      md: "768px",
+      lg: "1024px",
+      xl: "1280px",
+      "2xl": "1536px",
+    },
     extend: {
       typography: {
         DEFAULT: {
@@ -19,30 +27,31 @@ module.exports = {
             "--tw-prose-body": "var(--color-text-body)",
             "--tw-prose-bullets": "var(--color-text-body)",
             "--tw-prose-links": "var(--color-text-primary)",
+            "--tw-prose-pre-bg": "var(--color-bg-secondary)",
             h1: {
               fontFamily: "Fira Sans",
-              color: "var(--color-text-h1)"
+              color: "var(--color-text-h1)",
             },
             h2: {
               fontFamily: "Noticia Text",
-              color: "var(--color-text-h2)"
+              color: "var(--color-text-h2)",
             },
             h3: {
               fontFamily: "Noticia Text",
-              color: "var(--color-text-h3)"
+              color: "var(--color-text-h3)",
             },
             h4: {
               fontFamily: "Noticia Text",
             },
             p: {
-              fontFamily: "Telex"
+              fontFamily: "Telex",
             },
             li: {
-              fontFamily: "Telex"
+              fontFamily: "Telex",
             },
             a: {
-              fontFamily: "Telex"
-            }
+              fontFamily: "Telex",
+            },
           },
         },
       },
@@ -53,7 +62,7 @@ module.exports = {
       textColor: {
         title: "var(--color-text-title)",
         accent: "var(--color-text-accent)",
-        primary: "var(--color-text-primary)",
+        body: "var(--color-text-body)",
         secondary: "var(--color-text-secondary)",
       },
     },
