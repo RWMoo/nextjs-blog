@@ -1,17 +1,16 @@
-import PageLayout from "../components/layouts/PageLayout";
-import MainCard from "../components/Cards/MainCard";
-import LatestPost from "../components/Cards/LatestPostCard";
-import { gql, GraphQLClient } from "graphql-request";
-import { getPosts } from "../utils/queries";
 import {
-  FaArrowRight,
   FaChevronCircleDown,
-  FaChevronCircleRight,
   FaDiscord,
   FaFacebook,
   FaInstagram,
   FaTwitter,
 } from "react-icons/fa";
+import PageLayout from "../components/layouts/PageLayout";
+import { getPosts } from "../utils/queries";
+import { motion } from "framer-motion";
+import Link from "next/link";
+import { useState } from "react";
+import { useRouter } from "next/router";
 
 export const getStaticProps = async () => {
   const { posts } = await getPosts();
@@ -22,11 +21,27 @@ export const getStaticProps = async () => {
   };
 };
 
+const variants = {
+  animate: { opacity: 1 },
+  exit: { opacity: 0 },
+};
+
+const arrowVariants = {
+  animate: { y: 0, opacity: 1 },
+  exit: { y: 100, opacity: 0 },
+};
+
 const Home = ({ posts }) => {
+  const router = useRouter();
+  const [buttonScale, setButtonScale] = useState(false);
   return (
     <PageLayout>
-      <div className="flex flex-col justify-around items-center h-full ">
-        <div className="text-center ">
+      <div className="flex h-full   flex-col justify-around items-center">
+        <motion.div
+          variants={variants}
+          animate={buttonScale ? "exit" : "animate"}
+          className="text-center "
+        >
           <h1 className="font-title text-7xl font-bold text-accent">Rm</h1>
           <p className="text-sm mt-2 text-body text-3xl font-bold font-display max-w-xs mx-auto">
             Hey, I&apos;m Rob.
@@ -35,18 +50,35 @@ const Home = ({ posts }) => {
             I&apos;m a front-end developer that dabbles with back-end from time
             to time.
           </p>
-        </div>
+        </motion.div>
         <div>
-          <button className="mx-auto text-4xl text-accent border p-3 border-4 border-accent-light rounded-full">
-            <FaChevronCircleDown className="" />
-          </button>
+          <Link href="/blog" passHref>
+            <motion.button
+              onClick={(e) => {
+                e.preventDefault();
+                setButtonScale(true);
+                setTimeout(() => {
+                  router.push("/blog");
+                }, 500);
+              }}
+              variants={arrowVariants}
+              animate={buttonScale ? "exit" : "animate"}
+              className="transition duration-400 transform hover:scale-110 mx-auto text-4xl text-accent border p-3 border-4 border-accent-light rounded-full"
+            >
+              <FaChevronCircleDown className="" />
+            </motion.button>
+          </Link>
         </div>
-        <div className="flex  justify-center space-x-7 text-2xl mt-8 text-body">
-          <FaFacebook className="transition duration-400 transform hover:scale-110  hover:text-accent" />
+        <motion.div
+          variants={variants}
+          animate={buttonScale ? "exit" : "animate"}
+          className="flex justify-center space-x-7 text-2xl mt-8 text-body"
+        >
+          <FaFacebook className="transition duration-400 transform hover:scale-110 hover:text-accent" />
           <FaInstagram />
           <FaTwitter />
           <FaDiscord />
-        </div>
+        </motion.div>
       </div>
     </PageLayout>
   );

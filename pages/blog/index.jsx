@@ -23,12 +23,14 @@ const Blog = ({ posts, categories }) => {
   console.log(categories);
   return (
     <PageLayout>
-      <SearchBar />
-      <Categories categories={categories} />
-      <div className="space-y-4">
-        {posts.map((post) => (
-          <MainCard key={post.id} {...post} />
-        ))}
+      <div className="flex-shrink">
+        <SearchBar />
+        <Categories categories={categories} />
+        <div className="space-y-4">
+          {posts.map((post) => (
+            <MainCard key={post.id} {...post} />
+          ))}
+        </div>
       </div>
     </PageLayout>
   );

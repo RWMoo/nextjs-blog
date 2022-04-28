@@ -1,6 +1,6 @@
 import { ThemeProvider } from "../components/ThemeProvider";
 import "../styles/globals.css";
-
+import { AnimatePresence } from "framer-motion";
 
 const initialTheme = () => {
   if (typeof window !== "undefined") {
@@ -10,11 +10,11 @@ const initialTheme = () => {
 
 function MyApp({ Component, pageProps }) {
   return (
-   
+    <AnimatePresence exitBeforeEnter>
       <ThemeProvider initialTheme={initialTheme()}>
         <Component {...pageProps} />
       </ThemeProvider>
-
+    </AnimatePresence>
   );
 }
 
