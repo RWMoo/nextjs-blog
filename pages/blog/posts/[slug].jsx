@@ -1,6 +1,6 @@
 import { serialize } from "next-mdx-remote/serialize";
 import { MDXRemote } from "next-mdx-remote";
-import PageLayout from "../../components/layouts/PageLayout";
+import PageLayout from "../../../components/layouts/PageLayout";
 import Image from "next/image";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import {
@@ -8,10 +8,10 @@ import {
   coldarkCold,
 } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import { useContext } from "react";
-import { ThemeContext } from "../../components/ThemeProvider";
+import { ThemeContext } from "../../../components/ThemeProvider";
 import { FaHeart, FaShare } from "react-icons/fa";
 import { format, parseISO } from "date-fns";
-import { getPost, getSlugs } from "../../utils/queries";
+import { getPost, getSlugs } from "../../../utils/queries";
 
 export const getStaticPaths = async () => {
   const slugs = await getSlugs();

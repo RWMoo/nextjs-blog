@@ -65,6 +65,13 @@ module.exports = {
         body: "var(--color-text-body)",
         secondary: "var(--color-text-secondary)",
       },
+      borderColor: {
+        title: "var(--color-text-title)",
+        accent: "var(--color-text-accent)",
+        "accent-light": "var(--color-text-accent-secondary)",
+        body: "var(--color-text-body)",
+        secondary: "var(--color-text-secondary)",
+      },
     },
   },
   plugins: [

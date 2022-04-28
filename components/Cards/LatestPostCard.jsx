@@ -6,7 +6,7 @@ import Link from "next/link";
 const LatestPost = (props) => {
   const { coverImage, title, excerpt, slug } = props;
   return (
-    <Link href={`/posts/${slug}`} passHref>
+    <Link href={`/blog/posts/${slug}`} passHref>
       <button>
         <div className="flex items-center space-x-2 p-4 bg-secondary">
           <div>
@@ -23,7 +23,7 @@ const LatestPost = (props) => {
               />
             </div>
           </div>
-          <div className="px-2 w-full text-body">
+          <div className="px-3 w-full text-body text-left">
             <h3 className=" line-clamp-2 text-sm font-display font-semibold">
               {title}
             </h3>

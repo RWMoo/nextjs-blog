@@ -1,34 +1,39 @@
 .dark {
   --color-bg-primary: #151b22;
   --color-bg-secondary: #181f27;
-  --color-text-title: #3E8ADA;
+  --color-text-title: #3e8ada;
   --color-text-h1: #eff3f8;
-  --color-text-h2: #dce6ef;
-  --color-text-h3: #9bc1ec;
+  --color-text-h2: #9bc1ec;
+  --color-text-h3: #dce6ef;
   --color-text-body: #eff3f8;
   --color-text-secondary: #4a5568;
   --color-text-accent: #e96f61;
+  --color-text-accent-secondary: #f3b0a9;
 }
 
 .light {
   --color-bg-primary: #ffffff;
   --color-bg-secondary: #eff3f8;
-  --color-text-title: #2570C1;
+  --color-text-title: #2570c1;
   --color-text-h1: #252e3d;
   --color-text-h2: #1a5291;
   --color-text-h3: #3583d9;
   --color-text-body: #2d3748;
   --color-text-secondary: #4a5568;
   --color-text-accent: #2b6cb0;
+  --color-text-accent-secondary: #7daedf;
 }
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+html,
+body,
+body > div:first-child,
+div#__next,
 div#__next > div {
   height: 100%;
-  -webkit-font-smoothing: antialiased;
 }
 
 div#__next > div,
@@ -38,7 +43,7 @@ nav {
 }
 
 h1 {
- @apply leading-tight !important
+  @apply leading-tight !important;
 }
 
 pre {
@@ -48,11 +53,10 @@ pre {
   padding-right: 1rem !important;
 }
 
-
 pre {
-    -ms-overflow-style: none;  /* Internet Explorer 10+ */
-    scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
 }
-pre ::-webkit-scrollbar { 
-    display: none;  /* Safari and Chrome */
+pre ::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
 }

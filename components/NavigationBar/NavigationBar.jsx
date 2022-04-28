@@ -29,7 +29,7 @@ const links = [
 const NavigationBar = () => {
   const [showSearch, setShowSearch] = useState(false);
   return (
-    <nav className="flex justify-between items-center px-6 h-20 w-full bg-primary text-body">
+    <nav className="flex justify-between items-center px-5 h-20 w-full bg-primary text-body">
       <Menu>
         <Menu.Button>
           <FaBars className="text-xl " />

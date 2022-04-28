@@ -16,6 +16,16 @@ export const getSlugs = async () => {
   `);
 };
 
+export const getCategorySlugs = async () => {
+  return client.request(gql`
+    query getSlugs {
+      categories {
+        slug
+      }
+    }
+  `);
+};
+
 export const getPost = async (slug) => {
   return client.request(
     gql`
@@ -58,10 +68,39 @@ export const getPosts = async () => {
           }
           category {
             title
+            slug
           }
           minutes
         }
       }
     `
+  );
+};
+
+export const getPostsByCategory = async (slug) => {
+  return client.request(
+    gql`
+      query getPostsByCategory($slug: String!) {
+        posts(where: { category: { slug: $slug } }) {
+          id
+          slug
+          title
+          date
+          excerpt
+          content
+          category {
+            title
+            slug
+            description
+          }
+          coverImage {
+            url
+            alt
+          }
+          minutes
+        }
+      }
+    `,
+    { slug }
   );
 };

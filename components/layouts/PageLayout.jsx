@@ -4,9 +4,9 @@ import NavigationBar from "../NavigationBar/NavigationBar"
 
 const PageLayout = ({ children }) => {
   return (
-    <div className="bg-primary">
+    <div className="bg-primary flex flex-col">
       <NavigationBar />
-      <div className="xl:container px-4 md:px-8 mx-auto text-gray-300">
+      <div className="xl:container h-full flex-col px-4 md:px-8 mx-auto text-gray-300">
         {children}
       </div>
       <Footer/>

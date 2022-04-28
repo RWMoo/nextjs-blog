@@ -6,7 +6,7 @@ import { formatGraphCMSDate } from "../../utils";
 const MainCard = (props) => {
   const { coverImage, minutes, date, title, excerpt } = props;
   return (
-    <div className="p-4 pb-6 bg-secondary mt-14 rounded-sm">
+    <div className="p-4 pb-6 bg-secondary rounded-sm">
       <div className="relative w-full h-44 shadow-md">
         <Image
           alt={coverImage.alt}
