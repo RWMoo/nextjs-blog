@@ -19,8 +19,10 @@ export const getSlugs = async () => {
 export const getCategorySlugs = async () => {
   return client.request(gql`
     query getSlugs {
-      categories {
-        slug
+      posts {
+        category {
+          slug
+        }
       }
     }
   `);

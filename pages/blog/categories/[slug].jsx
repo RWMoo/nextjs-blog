@@ -7,8 +7,8 @@ import {
 
 export const getStaticPaths = async () => {
   const slugs = await getCategorySlugs();
-  const paths = slugs.categories.map((event) => ({
-    params: { slug: event.slug },
+  const paths = slugs.posts.map((event) => ({
+    params: { slug: event.category.slug },
   }));
   return {
     paths: paths,
