@@ -38,6 +38,14 @@ html {
   background-color: var(--color-bg-primary);
 }
 
+input,
+textarea,
+button,
+select,
+a {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
