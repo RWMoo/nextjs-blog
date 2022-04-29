@@ -1,6 +1,7 @@
 import { ThemeProvider } from "../components/ThemeProvider";
 import "../styles/globals.css";
 import { AnimatePresence } from "framer-motion";
+import { useRouter } from "next/router";
 
 const initialTheme = () => {
   if (typeof window !== "undefined") {
@@ -9,12 +10,13 @@ const initialTheme = () => {
 };
 
 function MyApp({ Component, pageProps }) {
+  const router = useRouter();
   return (
-    <AnimatePresence exitBeforeEnter>
-      <ThemeProvider initialTheme={initialTheme()}>
-        <Component {...pageProps} />
-      </ThemeProvider>
-    </AnimatePresence>
+    <ThemeProvider initialTheme={initialTheme()}>
+      <AnimatePresence exitBeforeEnter>
+        <Component {...pageProps} key={router.asPath} />
+      </AnimatePresence>
+    </ThemeProvider>
   );
 }
 

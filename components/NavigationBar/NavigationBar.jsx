@@ -2,6 +2,7 @@ import ModeSwitch from "./ModeSlider/ModeSlider";
 import { FaBars, FaSearch } from "react-icons/fa";
 import { useState } from "react";
 import { Menu } from "@headlessui/react";
+import Link from "next/link";
 
 const links = [
   {
@@ -35,7 +36,9 @@ const NavigationBar = () => {
           <FaBars className="text-xl " />
         </Menu.Button>
         <Menu.Items className="w-full absolute left-0 top-0 z-40 flex flex-col font-display">
-          {links.map(item => <Item key={item.name} {...item}/>)}
+          {links.map((item) => (
+            <Item key={item.name} {...item} />
+          ))}
         </Menu.Items>
       </Menu>
       <div className="flex justify-end items-center space-x-4 flex-grow">
@@ -54,9 +57,9 @@ const Item = ({ name, link }) => {
   return (
     <Menu.Item className="py-3 text-center text-primary bg-slate-400">
       {({ active }) => (
-        <a className={`${active && "bg-blue-500"}`} href={link}>
-          {name}
-        </a>
+        <Link href={link} passHref>
+          <a className={`${active && "bg-blue-500"}`}>{name}</a>
+        </Link>
       )}
     </Menu.Item>
   );

@@ -28,7 +28,7 @@ const variants = {
 
 const arrowVariants = {
   animate: { y: 0, opacity: 1 },
-  exit: { y: 100, opacity: 0 },
+  exit: { y: 150, opacity: 0 },
 };
 
 const Home = ({ posts }) => {
@@ -54,13 +54,6 @@ const Home = ({ posts }) => {
         <div>
           <Link href="/blog" passHref>
             <motion.button
-              onClick={(e) => {
-                e.preventDefault();
-                setButtonScale(true);
-                setTimeout(() => {
-                  router.push("/blog");
-                }, 500);
-              }}
               variants={arrowVariants}
               animate={buttonScale ? "exit" : "animate"}
               className="transition duration-400 transform hover:scale-110 mx-auto text-4xl text-accent border p-3 border-4 border-accent-light rounded-full"

@@ -1,10 +1,12 @@
-import React from "react";
+import { motion } from "framer-motion";
+import { useRouter } from "next/router";
 import Footer from "../Footer/Footer";
 import NavigationBar from "../NavigationBar/NavigationBar";
-import { motion } from "framer-motion";
+
 const PageLayout = ({ children }) => {
+  const router = useRouter();
   const variants = {
-    initial: { opacity: 0, y: -1000 },
+    initial: { opacity: 0, y: -150 },
     animate: {
       opacity: 1,
       y: 0,
@@ -18,7 +20,16 @@ const PageLayout = ({ children }) => {
         },
       },
     },
-    exit: { opacity: 0, y: 1000 },
+    exit: {
+      opacity: 0,
+      y: 50,
+      transition: {
+        duration: 0.3,
+        y: {
+          delay: 0.1
+        }
+      },
+    },
   };
 
   return (

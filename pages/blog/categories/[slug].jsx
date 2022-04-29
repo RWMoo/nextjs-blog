@@ -24,7 +24,6 @@ export const getStaticProps = async ({ params }) => {
       notFound: true,
     };
   }
- console.log(posts)
   return {
     props: { posts: posts, category: posts[0].category },
     revalidate: 60 * 60,

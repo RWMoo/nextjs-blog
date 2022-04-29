@@ -30,7 +30,7 @@ export default function Example() {
           className={classNames(
             isLight
               ? "translate-x-7 bg-orange-500"
-              : "translate-x-1 bg-indigo-500",
+              : "translate-x-1 bg-indigo-600",
             "pointer-events-none relative inline-block h-5 w-5 rounded-full shadow transform ring-0 transition ease-in-out duration-200"
           )}
         >
